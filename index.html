@@ -6,7 +6,27 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<div class="container game">
+    <h1 class="game__title">Whack a cube</h1>
+    <p class="game__description">Whac-A-Mole is a popular arcade redemption game invented in 1976 by Aaron Fechter of Creative Engineering, Inc.</p>
+    <div class="game__controls controls" id="game__controls">
+        <p class="controls__text">Select any mode to start!</p>
+        <button id="easyMode" data-ttl="1500" class="controls_gameMode">Easy</button>
+        <button id="normalMode" data-ttl="1000" class="controls_gameMode">Normal</button>
+        <button id="hardMode" data-ttl="500" class="controls_gameMode">Hard</button>
+    </div>
+    <div id="game__area">
 
+    </div>
+    <div class="game__score score">
+        <p class="score__value" id="score__value"></p>
+        <p class="score__description">Human - Computer</p>
+    </div>
+    <button class="processControl" id="processControl">Pause</button>
+</div>
+<div class="notifications" id="notifications">
+
+</div>
 <script src="js/script.js"></script>
 </body>
 </html>

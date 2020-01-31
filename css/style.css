@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:200,400,500,700&display=swap');
+
+body {
+    font-family: Roboto, sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.game__title {
+    text-align: center;
+}
+
+.game__description {
+    text-align: center;
+    max-width: 400px;
+    margin: 0 auto 40px;
+}
+
+.game__controls {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.controls__text {
+    margin-bottom: 20px;
+}
+
+.controls_gameMode, .processControl {
+    border: none;
+    font-size: 18px;
+    padding: 10px 15px;
+    margin: 0 10px;
+    border-radius: 6px;
+    color: #fff;
+}
+
+.controls_gameMode:focus {
+    outline: none;
+}
+
+.controls .selected {
+    font-weight: 700;
+}
+
+#easyMode {
+    background: #9fec55;
+}
+
+#easyMode.selected {
+    box-shadow: 0 0 0 3px rgba(159, 236, 85, 0.51);
+    outline: none;
+}
+
+#normalMode {
+    background: #61ab00;
+}
+
+#normalMode.selected {
+    box-shadow: 0 0 0 3px rgba(97, 171, 0, 0.5);
+    outline: none;
+}
+
+#hardMode {
+    background: #e6332a;
+}
+
+#hardMode.selected {
+    box-shadow: 0 0 0 3px rgba(230, 51, 42, 0.51);
+    outline: none;
+}
+
+.game__area {
+    margin:  0 auto;
+    border: 3px solid #3d3d3d;
+    border-collapse: collapse;
+}
+
+.area__block {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #3d3d3d;
+}
+
+.game__score {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.score__value {
+    margin: 0;
+    font-size: 30px;
+}
+
+.score__description {
+    margin-top: 5px;
+    font-weight: 200;
+}
+
+.notifications {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    width: 400px;
+}
+
+.alert {
+    width: 300px;
+    padding: 15px 20px;
+    border-radius: 5px;
+    color: #fff;
+    animation: .5s alert;
+    opacity: 1;
+    float: right;
+    margin-bottom: 20px;
+    transition: 1s opacity;
+}
+
+.alert h4 {
+    margin: 0 0 10px 0;
+}
+
+.alert p {
+    margin: 0;
+}
+
+.alert-error, .alert-failed {
+    background: #e6332a;
+    border-right: 5px solid #d00a00;
+}
+
+.alert-warning {
+    background: #ffae42;
+    border-right: 5px solid rgb(255, 132, 0);
+}
+
+.alert-info {
+    background: #0046FF;
+    border-right: 5px solid #0300ff;
+}
+
+.alert-log {
+    background: #000000;
+    border-right: 5px solid #ccc;
+}
+
+.alert-good {
+    background: #167F00;
+    border-right: 5px solid #0e3e00;
+}
+
+.alert.disable {
+    opacity: 0;
+}
+
+.processControl {
+    margin: 0 auto;
+    background: #3d3d3d;
+    display: none;
+}
+
+.processControl.active {
+    display: block;
+}
+
+@keyframes alert {
+    0% {
+        top: 0;
+        /*transform: translateY(-100%);*/
+        margin-top: -100%;
+        opacity: 0;
+    }
+}
