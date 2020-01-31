@@ -74,20 +74,6 @@ class Game {
             this.render.removeActiveCube( this.currentBlock.coordinates );
         }
 
-        if (this.isGameEnd()) {
-            clearInterval(this.process);
-
-            let {successful, failed} = this.calculateScore();
-
-            if (successful > failed) {
-                this.render.sendNotification({type: 'good', message: `You are winner!`});
-            } else {
-                this.render.sendNotification({type: 'failed', message: `Terminator T-800 was better.`});
-            }
-
-            this.status = 'stop';
-        }
-
         if (newCoordinates) {
             this.render.setActiveCube(newCoordinates, 'black');
             this.currentBlock = {coordinates: newCoordinates, type: 'active'};
@@ -126,9 +112,23 @@ class Game {
                 this.render.setActiveCube(coordinates, 'red');
                 this.failedlBlocks.push(this.getHash(coordinates));
             }
-        }
 
-        this.calculateScore();
+            if (this.isGameEnd()) {
+                clearInterval(this.process);
+
+                let {successful, failed} = this.calculateScore();
+
+                if (successful > failed) {
+                    this.render.sendNotification({type: 'good', message: `You are winner!`});
+                } else {
+                    this.render.sendNotification({type: 'failed', message: `Terminator T-800 was better.`});
+                }
+
+                this.status = 'stop';
+            }
+
+            this.calculateScore();
+        }
     }
 
     getHash({x, y}) {
