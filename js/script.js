@@ -329,14 +329,14 @@ let game = new Game(gameOptions);
 let buttons = document.getElementById('game__controls');
 let gameControl = document.getElementById('processControl');
 
-buttons.addEventListener('click', ( )=> {
+buttons.addEventListener('click', (event)=> {
     let timer = event.target.getAttribute('data-ttl');
 
     if (timer) {
-        game.start({timer})
+        game.start({timer});
+        gameControl.classList.add('active');
     }
 
-    gameControl.classList.add('active');
 });
 
 gameControl.addEventListener('click' , () => {
