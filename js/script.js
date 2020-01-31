@@ -11,8 +11,8 @@ class Game {
 
         this.score = document.getElementById(scoreID);
 
-        this.render = new Render({gameContainerID: this.gameContainerID, sizeX: this.sizeX, sizeY: this.sizeY});
-        this.control =new Control({containerID: gameContainerID});
+        this.render = new RenderWhackCube({gameContainerID: this.gameContainerID, sizeX: this.sizeX, sizeY: this.sizeY});
+        this.control =new ControlWhackCube({containerID: gameContainerID});
 
         this.status = 'stop';
 
@@ -161,7 +161,7 @@ class Game {
     }
 }
 
-class Render {
+class RenderWhackCube {
     constructor(options) {
         let {gameContainerID, sizeX, sizeY} = options;
 
@@ -288,7 +288,7 @@ class Render {
     }
 }
 
-class Control {
+class ControlWhackCube {
     constructor(options) {
         let {containerID} = options;
 
