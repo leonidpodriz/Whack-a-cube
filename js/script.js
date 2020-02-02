@@ -66,17 +66,18 @@ class Game {
     }
 
     eventLoop() {
+        let lastCoordinates = this.currentBlock.coordinates;
         let newCoordinates = this.getNewCoordinates();
 
         this.blocksCache = this.blocksCache.slice(-4);
 
-        if ( this.currentBlock.type && this.currentBlock.type !== 'successful') {
-            this.render.removeActiveCube( this.currentBlock.coordinates );
-        }
-
         if (newCoordinates) {
             this.render.setActiveCube(newCoordinates, 'black');
             this.currentBlock = {coordinates: newCoordinates, type: 'active'};
+
+            if ( lastCoordinates) {
+                this.controlCallback(lastCoordinates);
+            }
         }
         else {
             clearInterval(this.process);
@@ -154,7 +155,7 @@ class Game {
     }
 
     generateRandomCoordinates() {
-        let x = 1+  Math.floor(Math.random() * (this.sizeX));
+        let x = 1 + Math.floor(Math.random() * (this.sizeX));
         let y = 1 + Math.floor(Math.random() * (this.sizeY));
 
         return {x, y};
